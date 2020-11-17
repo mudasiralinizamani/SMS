@@ -1,25 +1,26 @@
 WindowManager:
     Class_7:
+    Chapter_1_Screen:
+    Chapter_2_Screen:
+    Chapter_3_Screen:
+    Chapter_4_Screen:
+    Chapter_5_Screen:
 
 
 <Class_7>:
     name: 'class_7'
 
     ScrollView:
-        GridLayout:
-            # orientation: 'vertical'
+        MDGridLayout:
             cols: 1
-            # row_default_height: 50
             size_hint_y: None
-            height: dp(1500)
-            # size: (dp(900), 400)
+            height: dp(2000)
             spacing: 20
             padding: 10
 
             MDCard:
                 orientation: 'vertical'
                 id: card_1
-                # size_hint: (.9, .2)
                 size_hint_y: .3
                 spacing: 20
                 
@@ -36,6 +37,8 @@ WindowManager:
                 orientation: 'vertical'
                 id: card_2
                 size_hint: (.9, .2)
+                spacing: 20
+
                 
                 MDLabel:
                     id: chapter_2_heading
@@ -46,10 +49,12 @@ WindowManager:
                     size_hint: (1, .2)
                     halign: 'center'
 
+
             MDCard:
                 orientation: 'vertical'
                 id: card_3
                 size_hint: (.9, .2)
+                spacing: 20
                 
                 MDLabel:
                     id: chapter_3_heading
@@ -64,6 +69,7 @@ WindowManager:
                 orientation: 'vertical'
                 id: card_4
                 size_hint: (.9, .2)
+                spacing: 20
                 
                 MDLabel:
                     id: chapter_4_heading
@@ -78,6 +84,7 @@ WindowManager:
                 orientation: 'vertical'
                 id: card_5
                 size_hint: (.9, .2)
+                spacing: 20
                 
                 MDLabel:
                     id: chapter_5_heading
@@ -87,7 +94,96 @@ WindowManager:
                     bold: True
                     size_hint: (1, .2)
                     halign: 'center'
+                    
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+        MDRaisedButton:
+            text: 'Screen 1'
+            on_release: app.root.current = 'chapter_1'
+
+        MDRaisedButton:
+            text: 'Screen 2'
+            on_release: app.root.current = 'chapter_2'
+        
+        MDRaisedButton:
+            text: 'Screen 3'
+            on_release: app.root.current = 'chapter_3'
+
+        MDRaisedButton:
+            text: 'Screen 4'
+            on_release: app.root.current = 'chapter_4'
+
+        MDRaisedButton:
+            text: 'Screen 5'
+            on_release: app.root.current = 'chapter_5'
+
+    
 
 
+<Chapter_1_Screen>:
+    name: 'chapter_1'
 
+    ScrollView:
+        MDGridLayout:
+            cols: 1
+            size_hint_y: None
+            height: dp(1500)
+            spacing: 20
+            padding: 10
 
+            MDCard:
+                id: true_false_card
+                orientation: 'vertical'
+                size_hint_y: .5
+                spacing: 20
+                padding: 5
+                    
+                MDLabel:
+                    text: 'True/Flase'
+                    halign: 'center'
+                    font_style: 'H4'
+                    theme_text_color: 'Secondary'
+                    size_hint: (1, .2)
+                    bold: True
+                    
+            MDCard:
+                id: fill_in_blanks_card
+                orientation: 'vertical'
+                size_hint_y: .5
+                spacing: 20
+                padding: 5
+                    
+                MDLabel:
+                    text: 'Fill in the Blanks'
+                    halign: 'center'
+                    font_style: 'H4'
+                    theme_text_color: 'Secondary'
+                    size_hint: (1, .2)
+                    bold: True
+
+            MDCard:
+                orientation: 'vertical'
+                id: card_1
+                size_hint_y: .3
+                spacing: 20
+                
+                MDLabel:
+                    text: 'HEllo World'
+                    font_style: 'H5'
+                    italic: True
+                    theme_text_color: 'Secondary'
+                    bold: True
+            
+
+<Chapter_2_Screen>:
+    name: 'chapter_2'
+
+<Chapter_3_Screen>:
+    name: 'chapter_3'
+
+<Chapter_4_Screen>:
+    name: 'chapter_4'
+
+<Chapter_5_Screen>:
+    name: 'chapter_5'
