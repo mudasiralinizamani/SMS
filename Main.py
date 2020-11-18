@@ -19,6 +19,7 @@ MDFillRoundFlatButton,
 MDRaisedButton,
 MDRectangleFlatButton,
 )
+from kivymd.uix.dialog import MDDialog
 from kivymd.uix.label import MDLabel
 from kivymd.uix.card import MDCard
 from kivymd.uix.datatables import MDDataTable
@@ -26,6 +27,10 @@ from  kivy.metrics import dp
 
 # Setting Window Maxamize - Mudasir Ali
 Window.maximize()
+
+# Variables for Users - Mudasir Ali
+Usernames = ['mudasir', 'nida']
+Passwords = {Usernames[0]: '12345', Usernames[1]: '12345'}
 
 # Chapter 1 Variables - Mudasir Ali
 Chapter_1_name = 'Computer System'
@@ -42,15 +47,13 @@ Chapter_1_truefalse = ['A joystick if used for playing games.',
                                                 'A printed copy is  know as hard copy.',
                                                 'A speaker is an output device',
                                                 'CD stands for computer disc',
-                                                'A DVD has more storage capacity than a CD',                                                
-                                                ]
+                                                'A DVD has more storage capacity than a CD']
 
 Chapter_1_trues_false = {Chapter_1_truefalse[0]: 'True', Chapter_1_truefalse[1]: 'False', 
                                                     Chapter_1_truefalse[2]: 'True', Chapter_1_truefalse[3]: 'True', 
                                                     Chapter_1_truefalse[4]: 'True', Chapter_1_truefalse[5]: 'True', 
                                                     Chapter_1_truefalse[6]: 'True', Chapter_1_truefalse[7]: 'True', 
-                                                    Chapter_1_truefalse[8]: 'True', Chapter_1_truefalse[9]: 'True', 
-                                                        }
+                                                    Chapter_1_truefalse[8]: 'True', Chapter_1_truefalse[9]: 'True'}
 
 # Variables for Fill in the Blanks - Mudasir Ali
 Chapter_1_fill_in_blanks = ['The evolution of computers started way back in the late ____.',
@@ -62,20 +65,36 @@ Chapter_1_fill_in_blanks = ['The evolution of computers started way back in the 
                                                             'The types of transmission channels are ____ and ____.',
                                                             'In ____ topology, all the workstations are connected to the central hub.',
                                                             '____ is a computer that manages the storage and retrieval of files.',
-                                                            'In ____ the computer are interconnected within a limited geographical area.'
-                                                    ]
+                                                            'In ____ the computer are interconnected within a limited geographical area.']
 
 Chapter_1_blanks = {Chapter_1_fill_in_blanks[0]: '1930',
                                             Chapter_1_fill_in_blanks[1]: 'Vaccum tube',
-                                            Chapter_1_fill_in_blanks[2]: 'Peri',
-                                            Chapter_1_fill_in_blanks[3]: '1930',
-                                            Chapter_1_fill_in_blanks[4]: '1930',
-                                            Chapter_1_fill_in_blanks[5]: '1930',
-                                            Chapter_1_fill_in_blanks[6]: '1930',
-                                            Chapter_1_fill_in_blanks[7]: '1930',
-                                            Chapter_1_fill_in_blanks[8]: '1930',
-                                            Chapter_1_fill_in_blanks[9]: '1930',
-                                            }
+                                            Chapter_1_fill_in_blanks[2]: 'Peripheral',
+                                            Chapter_1_fill_in_blanks[3]: 'System',
+                                            Chapter_1_fill_in_blanks[4]: 'Communicate',
+                                            Chapter_1_fill_in_blanks[5]: 'Wireless',
+                                            Chapter_1_fill_in_blanks[6]: ['Wired', 'Wireless'],
+                                            Chapter_1_fill_in_blanks[7]: 'Start',
+                                            Chapter_1_fill_in_blanks[8]: 'A server',
+                                            Chapter_1_fill_in_blanks[9]: 'LAN'}
+
+Chapter_1_questions = ['What is a peripheral device? Give examples of some peripheral devices.',
+                                                'Where is a touch screen used?',
+                                                'Why are secondary storage devices needed?',
+                                                'Where is MICR normally used and why?',
+                                                'Name the computers used in different generations?',
+                                                'What is networking? Give its two advantages?',
+                                                'What are the different components of a computer network? Explain them briefly.',
+                                                'What s topology? Give examples.']
+
+Chapter_1_answers = {Chapter_1_questions[0]: ['The word peripheral comes form preipheral which at the edge or border in computer terminology peripheral', '1: Input Devices, 2: Output Devices, 3: Storage Devices'],
+                                            Chapter_1_questions[1]: '',
+                                            Chapter_1_questions[2]: '',
+                                            Chapter_1_questions[3]: '',
+                                            Chapter_1_questions[4]: '',
+                                            Chapter_1_questions[5]: '',
+                                            Chapter_1_questions[6]: '',
+                                            Chapter_1_questions[7]: ''}
 
 # Chapter 2 Variables - Mudasir Ali
 Chapter_2_name = 'Feature of Windows'
@@ -101,88 +120,35 @@ Chapter_5_qn = '5'
 Chapter_5_fb = '5'
 Chapter_5_tf = '5'
 
-# Screen Classes for chapters - Mudasir Ali
-class Chapter_1_Screen(Screen):
+
+
+class Login(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        # Creating table for Chapter True False - Mudasir Ali
+        self.Dialog_box = MDDialog(title='None', size_hint=(.8, 1))
+        self.Close_button = MDRaisedButton(text='Close', on_release=self.Close_dialog)
+        self.Continue_button = MDRaisedButton(text='Continue', on_release=self.Continue)
 
-        self.true_false_table = MDDataTable(
-            size_hint=(.8, .8),
-            pos_hint={'center_x': .5, 'center_y': .5},
-            use_pagination=True,
-            rows_num=7,
-            column_data=[
-                ('No', dp(10)),
-                ('Sentence', dp(170)),
-                ('True/False', dp(30)),
-            ],
-            row_data=[
-                ('1', Chapter_1_truefalse[0], Chapter_1_trues_false.get(Chapter_1_truefalse[0])),
-                ('2', Chapter_1_truefalse[1], Chapter_1_trues_false.get(Chapter_1_truefalse[1])),
-                ('3', Chapter_1_truefalse[2], Chapter_1_trues_false.get(Chapter_1_truefalse[2])),
-                ('4', Chapter_1_truefalse[3], Chapter_1_trues_false.get(Chapter_1_truefalse[3])),
-                ('5', Chapter_1_truefalse[4], Chapter_1_trues_false.get(Chapter_1_truefalse[4])),
-                ('6', Chapter_1_truefalse[5], Chapter_1_trues_false.get(Chapter_1_truefalse[5])),
-                ('7', Chapter_1_truefalse[6], Chapter_1_trues_false.get(Chapter_1_truefalse[6])),
-                ('8', Chapter_1_truefalse[7], Chapter_1_trues_false.get(Chapter_1_truefalse[7])),
-                ('9', Chapter_1_truefalse[8], Chapter_1_trues_false.get(Chapter_1_truefalse[8])),
-                ('10', Chapter_1_truefalse[9], Chapter_1_trues_false.get(Chapter_1_truefalse[9])),
-            ]
-        )
+    def User_login(self):
+        username = str(self.ids.username_field.text)
+        password = str(self.ids.password_field.text)
 
-        self.fill_in_blanks_table = MDDataTable(
-            size_hint=(.8, .8),
-            pos_hint={'center_x': .5, 'center_y': .5},
-            use_pagination=True,
-            rows_num=7,
-            column_data=[
-                ('No', dp(10)),
-                ('Sentence', dp(160)),
-                ('Blanks', dp(50)),
-            ],
-            row_data=[
-                ('1', Chapter_1_fill_in_blanks[0], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[0])),
-                ('2', Chapter_1_fill_in_blanks[1], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[1])),
-                ('3', Chapter_1_fill_in_blanks[2], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[2])),
-                ('4', Chapter_1_fill_in_blanks[3], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[3])),
-                ('5', Chapter_1_fill_in_blanks[4], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[4])),
-                ('6', Chapter_1_fill_in_blanks[5], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[5])),
-                ('7', Chapter_1_fill_in_blanks[6], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[6])),
-                ('8', Chapter_1_fill_in_blanks[7], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[7])),
-                ('9', Chapter_1_fill_in_blanks[8], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[8])),
-                ('10', Chapter_1_fill_in_blanks[9], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[9])),
-                
-            ]
-        )
+        if username in Usernames and password == Passwords.get(username):
+            self.Dialog_box = MDDialog(title=f'Hi {username}, Welcome to the SMS', size_hint=(.8, 1), buttons=[self.Continue_button])
+        elif username in Usernames and password != Passwords.get(username):
+            self.Dialog_box = MDDialog(title=f'{username}, Your password is incorrect.', buttons=[self.Close_button], size_hint=(.8, 1))
+        else:
+            self.Dialog_box = MDDialog(title=f'Username and Password are incorrect.', buttons=[self.Close_button], size_hint=(.8, 1))
 
-        self.Show()
+        self.Dialog_box.open()
 
-    def Show(self):
-        async def show():
-            await asynckivy.sleep(1)
-
-            self.ids.true_false_card.add_widget(self.true_false_table)
-            self.ids.fill_in_blanks_card.add_widget(self.fill_in_blanks_table)
-
-        asynckivy.start(show())
-class Chapter_2_Screen(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
-class Chapter_3_Screen(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
-class Chapter_4_Screen(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
-class Chapter_5_Screen(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
+    def Close_dialog(self, obg):
+        self.Dialog_box.dismiss()
+    
+    def Continue(self, obg):
+        self.manager.current = 'class_7'
+        self.Dialog_box.dismiss()
 
 # Main Screen - Mudasir Ali
 class Class_7(Screen):
@@ -312,6 +278,141 @@ class Class_7(Screen):
             self.ids.card_5.add_widget(self.label_5)
     
         asynckivy.start(show())
+
+
+# Screen Classes for chapters - Mudasir Ali
+class Chapter_1_Screen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        # Creating table for Chapter True False - Mudasir Ali
+
+        self.true_false_table = MDDataTable(
+            size_hint=(.8, .8),
+            pos_hint={'center_x': .5, 'center_y': .5},
+            use_pagination=True,
+            rows_num=5,
+            column_data=[
+                ('No', dp(10)),
+                ('Sentence', dp(165)),
+                ('True/False', dp(30))],
+            row_data=[
+                ('1', Chapter_1_truefalse[0], Chapter_1_trues_false.get(Chapter_1_truefalse[0])),
+                ('2', Chapter_1_truefalse[1], Chapter_1_trues_false.get(Chapter_1_truefalse[1])),
+                ('3', Chapter_1_truefalse[2], Chapter_1_trues_false.get(Chapter_1_truefalse[2])),
+                ('4', Chapter_1_truefalse[3], Chapter_1_trues_false.get(Chapter_1_truefalse[3])),
+                ('5', Chapter_1_truefalse[4], Chapter_1_trues_false.get(Chapter_1_truefalse[4])),
+                ('6', Chapter_1_truefalse[5], Chapter_1_trues_false.get(Chapter_1_truefalse[5])),
+                ('7', Chapter_1_truefalse[6], Chapter_1_trues_false.get(Chapter_1_truefalse[6])),
+                ('8', Chapter_1_truefalse[7], Chapter_1_trues_false.get(Chapter_1_truefalse[7])),
+                ('9', Chapter_1_truefalse[8], Chapter_1_trues_false.get(Chapter_1_truefalse[8])),
+                ('10', Chapter_1_truefalse[9], Chapter_1_trues_false.get(Chapter_1_truefalse[9])),
+            ]
+        )
+
+        self.fill_in_blanks_table = MDDataTable(
+            size_hint=(.8, .8),
+            pos_hint={'center_x': .5, 'center_y': .5},
+            use_pagination=True,
+            column_data=[
+                ('No', dp(10)),
+                ('Sentence', dp(155)),
+                ('Blanks', dp(40))],
+            row_data=[
+                ('1', Chapter_1_fill_in_blanks[0], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[0])),
+                ('2', Chapter_1_fill_in_blanks[1], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[1])),
+                ('3', Chapter_1_fill_in_blanks[2], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[2])),
+                ('4', Chapter_1_fill_in_blanks[3], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[3])),
+                ('5', Chapter_1_fill_in_blanks[4], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[4])),
+                ('6', Chapter_1_fill_in_blanks[5], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[5])),
+                ('7', Chapter_1_fill_in_blanks[6], f'{Chapter_1_blanks.get(Chapter_1_fill_in_blanks[6])[0]} {Chapter_1_blanks.get(Chapter_1_fill_in_blanks[6])[1]}'),
+                ('8', Chapter_1_fill_in_blanks[7], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[7])),
+                ('9', Chapter_1_fill_in_blanks[8], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[8])),
+                ('10', Chapter_1_fill_in_blanks[9], Chapter_1_blanks.get(Chapter_1_fill_in_blanks[9])),
+                
+            ]
+        )
+         # Labels for questions and answers - Mudasir Ali
+        self.question_1 = MDLabel(text=f'Q 1: {Chapter_1_questions[0]}', italic=True, theme_text_color='Primary', font_style='H6', size_hint_y=None, height=dp(30))
+        self.answer_1 = MDLabel(text=f'Ans: {Chapter_1_answers.get(Chapter_1_questions[0])[0]}', italic=True, theme_text_color='Secondary', font_style='H6', size_hint_y=None, height=dp(30))
+        self.answer_1_2 = MDLabel(text=f'Eg {Chapter_1_answers.get(Chapter_1_questions[0])[1]}', italic=True, theme_text_color='Secondary', font_style='H6', size_hint_y=None, height=dp(30))
+
+        self.question_2 = MDLabel(text=f'Q 2: {Chapter_1_questions[1]}', italic=True, theme_text_color='Primary', font_style='H6', size_hint_y=None, height=dp(30))
+        self.answer_2 = MDLabel(text=f'Ans: {Chapter_1_answers.get(Chapter_1_questions[1])}', italic=True, theme_text_color='Secondary', font_style='H6', size_hint_y=None, height=dp(30))
+
+        self.question_3 = MDLabel(text=f'Q 3: {Chapter_1_questions[2]}', italic=True, theme_text_color='Primary', font_style='H6', size_hint_y=None, height=dp(30))
+        self.answer_3 = MDLabel(text=f'Ans: {Chapter_1_answers.get(Chapter_1_questions[2])}', italic=True, theme_text_color='Secondary', font_style='H6', size_hint_y=None, height=dp(30))
+
+        self.question_4 = MDLabel(text=f'Q 4: {Chapter_1_questions[3]}', italic=True, theme_text_color='Primary', font_style='H6', size_hint_y=None, height=dp(30))
+        self.answer_4 = MDLabel(text=f'Ans: {Chapter_1_answers.get(Chapter_1_questions[3])}', italic=True, theme_text_color='Secondary', font_style='H6', size_hint_y=None, height=dp(30))
+
+        self.question_5 = MDLabel(text=f'Q 5: {Chapter_1_questions[4]}', italic=True, theme_text_color='Primary', font_style='H6', size_hint_y=None, height=dp(30))
+        self.answer_5 = MDLabel(text=f'Ans: {Chapter_1_answers.get(Chapter_1_questions[4])}', italic=True, theme_text_color='Secondary', font_style='H6', size_hint_y=None, height=dp(30))
+
+        self.question_6 = MDLabel(text=f'Q 6: {Chapter_1_questions[5]}', italic=True, theme_text_color='Primary', font_style='H6', size_hint_y=None, height=dp(30))
+        self.answer_6 = MDLabel(text=f'Ans: {Chapter_1_answers.get(Chapter_1_questions[5])}', italic=True, theme_text_color='Secondary', font_style='H6', size_hint_y=None, height=dp(30))
+
+        self.question_7 = MDLabel(text=f'Q 7: {Chapter_1_questions[6]}', italic=True, theme_text_color='Primary', font_style='H6', size_hint_y=None, height=dp(30))
+        self.answer_7 = MDLabel(text=f'Ans: {Chapter_1_answers.get(Chapter_1_questions[6])}', italic=True, theme_text_color='Secondary', font_style='H6', size_hint_y=None, height=dp(30))
+
+        self.question_8 = MDLabel(text=f'Q 8: {Chapter_1_questions[7]}', italic=True, theme_text_color='Primary', font_style='H6', size_hint_y=None, height=dp(30))
+        self.answer_8 = MDLabel(text=f'Ans: {Chapter_1_answers.get(Chapter_1_questions[7])}', italic=True, theme_text_color='Secondary', font_style='H6', size_hint_y=None, height=dp(30))
+
+
+        self.Show()
+
+    def Show(self):
+        async def show():
+            await asynckivy.sleep(1)
+
+            # Adding Widgets to the Cards - Mudasir Ali
+            self.ids.true_false_card.add_widget(self.true_false_table)
+            self.ids.fill_in_blanks_card.add_widget(self.fill_in_blanks_table)
+
+            # Adding questions/answers to the Cards - Mudasir Ali
+            self.ids.question_answer_card.add_widget(self.question_1)
+            self.ids.question_answer_card.add_widget(self.answer_1)
+            self.ids.question_answer_card.add_widget(self.answer_1_2)
+
+            self.ids.question_answer_card.add_widget(self.question_2)
+            self.ids.question_answer_card.add_widget(self.answer_2)
+
+            self.ids.question_answer_card.add_widget(self.question_3)
+            self.ids.question_answer_card.add_widget(self.answer_3)
+
+            self.ids.question_answer_card.add_widget(self.question_4)
+            self.ids.question_answer_card.add_widget(self.answer_4)
+
+            self.ids.question_answer_card.add_widget(self.question_5)
+            self.ids.question_answer_card.add_widget(self.answer_5)
+
+            self.ids.question_answer_card.add_widget(self.question_6)
+            self.ids.question_answer_card.add_widget(self.answer_6)
+
+            self.ids.question_answer_card.add_widget(self.question_7)
+            self.ids.question_answer_card.add_widget(self.answer_7)
+
+            self.ids.question_answer_card.add_widget(self.question_8)
+            self.ids.question_answer_card.add_widget(self.answer_8)
+
+
+        asynckivy.start(show())
+class Chapter_2_Screen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+class Chapter_3_Screen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+class Chapter_4_Screen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+class Chapter_5_Screen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 
 # ScreenManager Class - Mudasir Ali
