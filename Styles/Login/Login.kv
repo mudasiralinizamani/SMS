@@ -1,0 +1,41 @@
+<Login>:
+    name: 'login'
+    MDTextField:
+        id: username_field
+        hint_text: "Enter Username"
+        helper_text: "Enter a Valid Username"
+        helper_text_mode: "on_focus"
+        pos_hint: {'center_x': .5, 'center_y': .6}
+        icon_right_color: app.theme_cls.primary_color
+        size_hint_x: None
+        icon_right: 'eye-plus'
+        width: 400
+        multiline: False
+        required: True
+
+    MDTextField:
+        id: password_field
+        hint_text: "Enter Password"
+        helper_text: "Enter a Valid Password"
+        helper_text_mode: "on_focus"
+        pos_hint: {'center_x': .5, 'center_y': .4}
+        icon_right: "form-textbox-password"
+        icon_right_color: app.theme_cls.primary_color
+        size_hint_x: None
+        icon_right: 'eye-minus'
+        width: 400
+        multiline: False
+        password: True
+        required: True
+
+    MDFillRoundFlatIconButton:
+        text: "Login"
+        icon: "login"
+        pos_hint: {'center_x': .5, 'center_y': .3}
+        size_hint_x: None
+        width: 30
+        on_release: root.User_login()
+
+    MDBottomAppBar:
+        MDToolbar:
+            title: 'SMS - Class 7'

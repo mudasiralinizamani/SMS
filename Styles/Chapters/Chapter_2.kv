@@ -1,0 +1,68 @@
+<Chapter_2_Screen>:
+    name: 'chapter_2'
+    NavigationLayout:
+        ScreenManager:
+            Screen:
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: box
+                    MDToolbar:
+                        title: "SMS - Class 7"
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        right_action_items: [['magnify', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        # pos_hint: {'top': 1}
+                    
+                    MDTabs:
+                        id: tabs
+                    
+                    
+                        
+                                    
+                    
+        MDNavigationDrawer:
+            id: nav_drawer
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: '8dp'
+                padding: '8dp'
+                Image:
+                    source:'Images/logo.jpg'
+                MDLabel:
+                    text: 'SMS - Class 7'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                ScrollView:
+                    MDList:
+                        OneLineIconListItem:
+                            text: 'Home'
+                            on_release: app.root.current = 'class_7'
+                            IconLeftWidget:
+                                icon: 'home-circle-outline'
+                        OneLineIconListItem:
+                            text: 'IDK'
+                            IconLeftWidget:
+                                icon: 'face-profile'
+                        OneLineIconListItem:
+                            text:'Logout'
+                            on_release: app.logout()
+                            IconLeftWidget:
+                                icon: 'logout'
+
+        
+
+
+<Chapter_2_Question_Answers>:
+    MDCard:
+        orientation: 'vertical'
+
+        ScrollView:
+            GridLayout:
+                cols:1
+                size_hint_y: None
+                height: dp(300)
+                # spacing: 20
+                padding: 10
+                id: question_answer_card
+

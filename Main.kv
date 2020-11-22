@@ -1,55 +1,15 @@
+#:include Styles/Login/Login.kv
+#:include Styles/Chapters/Chapter_1.kv
+#:include Styles/Chapters/Chapter_2.kv
+
 WindowManager:
-    Login:
-    Class_7:
     Chapter_1_Screen:
     Chapter_2_Screen:
+    Login:
+    Class_7:
     Chapter_3_Screen:
     Chapter_4_Screen:
     Chapter_5_Screen:
-
-<Login>:
-    name: 'login'
-    MDTextField:
-        id: username_field
-        hint_text: "Enter Username"
-        helper_text: "Enter a Valid Username"
-        helper_text_mode: "on_focus"
-        pos_hint: {'center_x': .5, 'center_y': .6}
-        icon_right_color: app.theme_cls.primary_color
-        size_hint_x: None
-        icon_right: 'eye-plus'
-        width: 400
-        multiline: False
-        required: True
-
-    MDTextField:
-        id: password_field
-        hint_text: "Enter Password"
-        helper_text: "Enter a Valid Password"
-        helper_text_mode: "on_focus"
-        pos_hint: {'center_x': .5, 'center_y': .4}
-        icon_right: "form-textbox-password"
-        icon_right_color: app.theme_cls.primary_color
-        size_hint_x: None
-        icon_right: 'eye-minus'
-        width: 400
-        multiline: False
-        password: True
-        required: True
-
-    MDFillRoundFlatIconButton:
-        text: "Login"
-        icon: "login"
-        pos_hint: {'center_x': .5, 'center_y': .3}
-        size_hint_x: None
-        width: 30
-        on_release: root.User_login()
-
-    MDBottomAppBar:
-        MDToolbar:
-            title: 'SMS - Class 7'
-
-
 
 <Class_7>:
     name: 'class_7'
@@ -165,112 +125,8 @@ WindowManager:
     
 
 
-<Chapter_1_Screen>:
-    name: 'chapter_1'
 
-    NavigationLayout:
-        ScreenManager:
-            Screen:
-                BoxLayout:
-                    orientation: 'vertical'
-                    id: box
-                    MDToolbar:
-                        title: "SMS - Class 7"
-                        elevation: 10
-                        left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
-                        right_action_items: [['magnify', lambda x: nav_drawer.toggle_nav_drawer()]]
-                        # pos_hint: {'top': 1}
-                    
-                    ScrollView:
-                        MDGridLayout:
-                            cols: 1
-                            size_hint_y: None
-                            height: dp(1500)
-                            spacing: 20
-                            padding: 10
 
-                            MDCard:
-                                id: true_false_card
-                                orientation: 'vertical'
-                                size_hint_y: .5
-                                spacing: 20
-                                padding: 5
-                                    
-                                MDLabel:
-                                    text: 'True/Flase'
-                                    halign: 'center'
-                                    font_style: 'H4'
-                                    theme_text_color: 'Secondary'
-                                    size_hint: (1, .2)
-                                    bold: True
-                                    
-                            MDCard:
-                                id: fill_in_blanks_card
-                                orientation: 'vertical'
-                                size_hint_y: .5
-                                spacing: 20
-                                padding: 5
-                                    
-                                MDLabel:
-                                    text: 'Fill in the Blanks'
-                                    halign: 'center'
-                                    font_style: 'H4'
-                                    theme_text_color: 'Secondary'
-                                    size_hint: (1, .2)
-                                    bold: True
-
-                            MDCard:
-                                orientation: 'vertical'
-                                size_hint_y: .5
-                                # spacing: 2
-                                padding: 20
-                                    
-                                MDLabel:
-                                    text: 'Questions/Answers'
-                                    halign: 'center'
-                                    font_style: 'H4'
-                                    theme_text_color: 'Secondary'
-                                    size_hint: (1, .1)
-                                    bold: True
-                                ScrollView:
-                                    MDGridLayout:
-                                        cols:1
-                                        spacing: 10
-                                        id: question_answer_card
-                                    
-                    
-        MDNavigationDrawer:
-            id: nav_drawer
-            type: 'standard'
-            BoxLayout:
-                orientation: 'vertical'
-                spacing: '8dp'
-                padding: '8dp'
-                Image:
-                    source:'Images/logo.jpg'
-                MDLabel:
-                    text: 'SMS - Class 7'
-                    font_style: 'H5'
-                    size_hint_y: None
-                    height: self.texture_size[1]
-                ScrollView:
-                    MDList:
-                        OneLineIconListItem:
-                            text: 'Home'
-                            on_release: app.root.current = 'class_7'
-                            IconLeftWidget:
-                                icon: 'home-circle-outline'
-                        OneLineIconListItem:
-                            text: 'IDK'
-                            IconLeftWidget:
-                                icon: 'face-profile'
-                        OneLineIconListItem:
-                            text:'Logout'
-                            IconLeftWidget:
-                                icon: 'logout'
-
-<Chapter_2_Screen>:
-    name: 'chapter_2'
 
 <Chapter_3_Screen>:
     name: 'chapter_3'
