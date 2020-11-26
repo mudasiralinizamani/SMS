@@ -15,6 +15,14 @@
                     
                     MDTabs:
                         id: tabs
+                    
+                    MDBottomAppBar:
+                        MDToolbar:
+                            title: ''
+                            left_action_items: [['arrow-left', lambda x: app.to_home_screen()]]
+                            mode: 'end'
+                            type: 'bottom'
+                            
         MDNavigationDrawer:
             id: nav_drawer
             BoxLayout:
@@ -52,15 +60,16 @@
             GridLayout:
                 cols:1
                 size_hint_y: None
-                height: dp(600)
-                # spacing: 20
+                row_force_default: True
+                height: dp(1100)
+                spacing: 20
                 padding: 10
                 id: question_answer_card
 
 <Chapter_1_Fill_in_blanks>:
     BoxLayout:
         orientation: 'vertical'
-        id: chapter_1_fill_in_blanks_box
+        id: fill_in_blanks_box
         MDLabel:
             text: 'Fill in the Blanks'
             bold: True
@@ -72,7 +81,7 @@
 <Chapter_1_True_False>:
     BoxLayout:
         orientation: 'vertical'
-        id: chapter_1_true_false_box
+        id: true_false_box
         MDLabel:
             text: 'True False'
             bold: True

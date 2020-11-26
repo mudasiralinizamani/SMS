@@ -1,0 +1,88 @@
+<Chapter_4_Screen>:
+    name: 'chapter_4'
+    NavigationLayout:
+        ScreenManager:
+            Screen:
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: box
+                    MDToolbar:
+                        title: "SMS - Class 7 Ch:4, PowerPoint-Advance Features"
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        right_action_items: [['magnify', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        # pos_hint: {'top': 1}
+                    
+                    MDTabs:
+                        id: tabs
+                    MDBottomAppBar:
+                        MDToolbar:
+                            title: ''
+                            left_action_items: [['arrow-left', lambda x: app.to_home_screen()]]
+                            mode: 'end'
+        MDNavigationDrawer:
+            id: nav_drawer
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: '8dp'
+                padding: '8dp'
+                Image:
+                    source:'Images/logo.jpg'
+                MDLabel:
+                    text: 'SMS - Class 7'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                ScrollView:
+                    MDList:
+                        OneLineIconListItem:
+                            text: 'Home'
+                            on_release: app.root.current = 'class_7'
+                            IconLeftWidget:
+                                icon: 'home-circle-outline'
+                        OneLineIconListItem:
+                            text: 'IDK'
+                            IconLeftWidget:
+                                icon: 'face-profile'
+                        OneLineIconListItem:
+                            text:'Logout'
+                            on_release: app.logout()
+                            IconLeftWidget:
+                                icon: 'logout'
+
+<Chapter_4_Question_Answers>:
+    MDCard:
+        orientation: 'vertical'
+        ScrollView:
+            GridLayout:
+                cols:1
+                size_hint_y: None
+                height: dp(1100)
+                row_force_default: True
+                spacing: 20
+                padding: 10
+                id: question_answer_card
+
+<Chapter_4_Fill_in_blanks>:
+    BoxLayout:
+        orientation: 'vertical'
+        id: fill_in_blanks_box
+        MDLabel:
+            text: 'Fill in the Blanks'
+            bold: True
+            halign: 'center'
+            size_hint_y: .1
+            font_style: 'H4'
+            theme_text_color: 'Secondary'
+
+<Chapter_4_True_False>:
+    BoxLayout:
+        orientation: 'vertical'
+        id: true_false_box
+        MDLabel:
+            text: 'True False'
+            bold: True
+            halign: 'center'
+            size_hint_y: .1
+            font_style: 'H4'
+            theme_text_color: 'Secondary'

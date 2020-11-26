@@ -1,0 +1,234 @@
+<Courses>:
+    name: 'courses'
+    NavigationLayout:
+        ScreenManager:
+            Screen:
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: box
+                    MDToolbar:
+                        title: "Courses - MS Word"
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        right_action_items: [['magnify', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        pos_hint: {'top': 1}
+
+
+                    MDBoxLayout:
+
+                        MDNavigationRail:
+                            id: rail
+                            md_bg_color: get_color_from_hex("#344954")
+                            color_normal: get_color_from_hex("#718089")
+                            color_active: get_color_from_hex("#f3ab44")
+                            use_hover_behavior: True
+                            hover_bg: 0, 0, 0, .2
+                            use_resizeable: True
+                            use_title: True
+                            icon_title: "menu"
+                            text_title: "[b][color=#ffffff]Example[/color][/b]"
+                            on_item_switch: app.change_course(*args)
+
+                            MDNavigationRailItem:
+                                icon: "language-cpp"
+                                text: "MS Word"
+                                active: True
+
+                            MDNavigationRailItem:
+                                icon: "language-python"
+                                text: "MS Excel"
+
+                            MDNavigationRailItem:
+                                icon: "language-swift"
+                                text: "MS PowerPoint"
+
+
+                        BoxLayout:
+
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: '8dp'
+                padding: '8dp'
+                Image:
+                    source:'Images/logo.jpg'
+                MDLabel:
+                    text: 'SMS - Class 7'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                ScrollView:
+                    MDList:
+                        OneLineIconListItem:
+                            text: 'Home'
+                            on_release: app.root.current = 'class_7'
+                            IconLeftWidget:
+                                icon: 'home-circle-outline'
+                        OneLineIconListItem:
+                            text: 'IDK'
+                            IconLeftWidget:
+                                icon: 'face-profile'
+                        OneLineIconListItem:
+                            text:'Logout'
+                            on_release: app.logout()
+                            IconLeftWidget:
+                                icon: 'logout'
+
+<Ms_Word_Courses>:
+    name: 'courses_ms_word'
+    NavigationLayout:
+        ScreenManager:
+            Screen:
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: box
+                    MDToolbar:
+                        title: "Courses - MS Word"
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        right_action_items: [['magnify', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        pos_hint: {'top': 1}
+
+
+                    MDBoxLayout:
+
+                        MDNavigationRail:
+                            id: rail
+                            md_bg_color: get_color_from_hex("#344954")
+                            color_normal: get_color_from_hex("#718089")
+                            color_active: get_color_from_hex("#f3ab44")
+                            use_hover_behavior: True
+                            hover_bg: 0, 0, 0, .2
+                            use_resizeable: True
+                            use_title: True
+                            icon_title: "menu"
+                            text_title: "[b][color=#ffffff]Example[/color][/b]"
+                            on_item_switch: app.change_course(*args)
+
+                            MDNavigationRailItem:
+                                icon: "language-cpp"
+                                text: "MS Word"
+                                active: True
+
+                            MDNavigationRailItem:
+                                icon: "language-python"
+                                text: "MS Excel"
+
+                            MDNavigationRailItem:
+                                icon: "language-swift"
+                                text: "MS PowerPoint"
+
+
+                        BoxLayout:
+                            
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: '8dp'
+                padding: '8dp'
+                Image:
+                    source:'Images/logo.jpg'
+                MDLabel:
+                    text: 'SMS - Class 7'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                ScrollView:
+                    MDList:
+                        OneLineIconListItem:
+                            text: 'Home'
+                            on_release: app.root.current = 'class_7'
+                            IconLeftWidget:
+                                icon: 'home-circle-outline'
+                        OneLineIconListItem:
+                            text: 'IDK'
+                            IconLeftWidget:
+                                icon: 'face-profile'
+                        OneLineIconListItem:
+                            text:'Logout'
+                            on_release: app.logout()
+                            IconLeftWidget:
+                                icon: 'logout'
+
+
+<MS_Excel_Course>:
+    name: 'courses_ms_excel'
+    NavigationLayout:
+        ScreenManager:
+            Screen:
+                BoxLayout:
+                    orientation: 'vertical'
+                    id: box
+                    MDToolbar:
+                        title: "Courses - MS Excel"
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        right_action_items: [['magnify', lambda x: nav_drawer.toggle_nav_drawer()]]
+                        pos_hint: {'top': 1}
+
+
+                    MDBoxLayout:
+
+                        MDNavigationRail:
+                            id: rail
+                            md_bg_color: get_color_from_hex("#344954")
+                            color_normal: get_color_from_hex("#718089")
+                            color_active: get_color_from_hex("#f3ab44")
+                            use_hover_behavior: True
+                            hover_bg: 0, 0, 0, .2
+                            use_resizeable: True
+                            use_title: True
+                            icon_title: "menu"
+                            text_title: "[b][color=#ffffff]Example[/color][/b]"
+                            on_item_switch: app.change_course(*args)
+
+                            MDNavigationRailItem:
+                                icon: "language-cpp"
+                                text: "MS Word"
+                                active: True
+
+                            MDNavigationRailItem:
+                                icon: "language-python"
+                                text: "MS Excel"
+
+                            MDNavigationRailItem:
+                                icon: "language-swift"
+                                text: "MS PowerPoint"
+
+
+                        BoxLayout:
+                            
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: '8dp'
+                padding: '8dp'
+                Image:
+                    source:'Images/logo.jpg'
+                MDLabel:
+                    text: 'SMS - Class 7'
+                    font_style: 'H5'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                ScrollView:
+                    MDList:
+                        OneLineIconListItem:
+                            text: 'Home'
+                            on_release: app.root.current = 'class_7'
+                            IconLeftWidget:
+                                icon: 'home-circle-outline'
+                        OneLineIconListItem:
+                            text: 'IDK'
+                            IconLeftWidget:
+                                icon: 'face-profile'
+                        OneLineIconListItem:
+                            text:'Logout'
+                            on_release: app.logout()
+                            IconLeftWidget:
+                                icon: 'logout'

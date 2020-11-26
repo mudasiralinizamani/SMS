@@ -1,19 +1,31 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+# Importing KV Styles - Mudasir ALi
+
 #:include Styles/Login/Login.kv
+#: include Styles/Courses/Courses.kv
 #:include Styles/Chapters/Chapter_1.kv
 #:include Styles/Chapters/Chapter_2.kv
+#:include Styles/Chapters/Chapter_3.kv
+#:include Styles/Chapters/Chapter_4.kv
+#:include Styles/Chapters/Chapter_5.kv
+
 
 WindowManager:
+    Courses:
+    Login:
+    Ms_Word_Courses:
+    MS_Excel_Course:
+    Class_7:
     Chapter_1_Screen:
     Chapter_2_Screen:
-    Login:
-    Class_7:
     Chapter_3_Screen:
     Chapter_4_Screen:
     Chapter_5_Screen:
 
-<Class_7>:
-    name: 'class_7'
 
+<Class_7>:
+    name: 'class_7'    
     ScrollView:
         MDGridLayout:
             cols: 1
@@ -98,41 +110,11 @@ WindowManager:
                     bold: True
                     size_hint: (1, .2)
                     halign: 'center'
-                    
-    BoxLayout:
-        orientation: 'horizontal'
-        spacing: 10
-        MDRaisedButton:
-            text: 'Screen 1'
-            on_release: app.root.current = 'chapter_1'
 
-        MDRaisedButton:
-            text: 'Screen 2'
-            on_release: app.root.current = 'chapter_2'
-        
-        MDRaisedButton:
-            text: 'Screen 3'
-            on_release: app.root.current = 'chapter_3'
+    MDBottomAppBar:
+        MDToolbar:
+            title: 'SMS - Class 7'
+            mode: 'end'
+            type: 'bottom'
+            on_action_button: app.courses()
 
-        MDRaisedButton:
-            text: 'Screen 4'
-            on_release: app.root.current = 'chapter_4'
-
-        MDRaisedButton:
-            text: 'Screen 5'
-            on_release: app.root.current = 'chapter_5'
-
-    
-
-
-
-
-
-<Chapter_3_Screen>:
-    name: 'chapter_3'
-
-<Chapter_4_Screen>:
-    name: 'chapter_4'
-
-<Chapter_5_Screen>:
-    name: 'chapter_5'
